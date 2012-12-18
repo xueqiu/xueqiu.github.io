@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Engineering | Xueqiu Engineering Blog]]></title>
   <link href="http://xueqiu.github.com/blog/categories/engineering/atom.xml" rel="self"/>
   <link href="http://xueqiu.github.com/"/>
-  <updated>2012-12-18T15:37:36+08:00</updated>
+  <updated>2012-12-18T15:39:47+08:00</updated>
   <id>http://xueqiu.github.com/</id>
   <author>
     <name><![CDATA[雪球]]></name>
@@ -36,7 +36,7 @@
 
 <h4>Code Review</h4>
 
-<p>在我们的几个核心项目上，之前一直都是谁写的代码谁知道，其他人可能并不知道实现细节，也不知道是否实现的过程中有什么隐藏的问题。一直想找一个能够比较好进行 Code Review 的办法，不得法。找来找去发现其实 github 的 pull request 方式是最符合我们需要的方式，不过 github 的服务器对我们来说有点慢，弄个 Enterpries 版本又太贵，后来开窍了我们一直在用 <a href="http://www.redmine.org">Redmine</a> 做项目管理，那我们干脆就山寨一个 Pull Request 好了。</p>
+<p>在我们的几个核心项目上，之前一直都是谁写的代码谁知道，其他人可能并不知道实现细节，也不知道是否实现的过程中有什么隐藏的问题。一直想找一个能够比较好进行 Code Review 的办法，不得法。找来找去发现其实 github 的 pull request 方式是最符合我们需要的方式，不过 github 的服务器对我们来说有点慢，弄个 Enterprise 版本又太贵，后来开窍了我们一直在用 <a href="http://www.redmine.org">Redmine</a> 做项目管理，那我们干脆就山寨一个 Pull Request 好了。</p>
 
 <p>成果在这里 <a href="https://github.com/xueqiu/redmine_pull_requests">https://github.com/xueqiu/redmine_pull_requests</a> 欢迎 Fork 。使用半年来我们一共开启了将近 1000 个 request 了！通过引入方便的工具降低大家对改变的畏惧心理是个很有用的方法，一旦用上了就体会到好处变成习惯了。用这个工具我们还是提前发现了不少问题，更多的同学对其他人的代码也有了了解，因为有人要 review 自己的代码，也自觉的不能写的太差劲了 (-__-) 对提高代码质量还是很有帮助的。</p>
 
