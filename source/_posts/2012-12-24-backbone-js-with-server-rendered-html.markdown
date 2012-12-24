@@ -13,7 +13,7 @@ author_url: "http://xueqiu.com/mengxy"
 
 在页面初始化的时候，与发起一个ajax请求去取初始数据相比，把初始数据输出到页面里是一个更好的方案。Backbone.js提供了一个[Loading Bootstrapped Models](http://backbonejs.org/#FAQ-bootstrap)的FAQ，雪球也正是这样做的。把初始数据的json输出到页面里，然后Backbone.js用这个json来渲染页面。
 
-但是这一年的实践中陆续发现一些问题：接口输出的timeline json里某些字段里偶尔出现一些不可见的换行符，导致浏览器解析json的时候出错；输出json字符串有injection可能（后来今年三月份的时候backbone特意在文档里加上了提示）。另外，随着业务复杂性的增长，接口直接输出的json体积在膨胀，很多属性已经不是页面展示所必须的，json的体积已经接近甚至已经超过了生成的html的体积。
+但是这一年的实践中陆续发现一些问题：接口输出的timeline json里某些字段里偶尔出现一些不可见的换行符，导致浏览器解析json的时候出错。输出json字符串有injection可能（后来今年三月份的时候backbone特意在文档里加上了提示）。另外，随着业务复杂性的增长，接口直接输出的json体积在膨胀，很多属性已经不是页面展示所必须的，json的体积已经接近甚至已经超过了生成的html的体积。
 
 同时我还在思考另外一个问题，backbone的使用场景其实是app，[DocumentCloud](http://www.documentcloud.org/)、[Trello](https://trello.com/)这种需要反复对页面元素操作，应用要处理好数据和UI的一致性，初始化的时候稍微慢一点也没有关系，用backbone再好不过了。但是雪球其实更像是page，用户打开页面希望尽早的看到数据，当然我们也需要经常操作页面的元素，也需要处理数据和UI的一致性问题。
 
@@ -39,7 +39,7 @@ var TimelineView = Backbone.View.extend({
 })
 var statusCollection = new StatusCollection(statusList)
 var timelineView = new TimelineView({
-  el: ${"#timeline"},
+  el: $("#timeline"),
   collection: statusCollection
 })
 timelineView.render()
@@ -50,7 +50,7 @@ timelineView.render()
 
 `$("#timeline")`既然已经填满了，就不用再render啦。最后一行就改成了：
 ``` javascript
-if ($(#timeline).html().trim()){
+if ($("#timeline").html().trim()){
   timelineView.render()
 }
 ```
@@ -97,10 +97,10 @@ var TimelineView = Backbone.View.extend({
 })
 var statusCollection = new StatusCollection(statusList)
 var timelineView = new TimelineView({
-  el: ${"#timeline"},
+  el: $("#timeline"),
   collection: statusCollection
 })
-if ($(#timeline).html().trim()){
+if ($("#timeline").html().trim()){
   timelineView.render()
 }
 ```
