@@ -4,7 +4,7 @@
   <title><![CDATA[Xueqiu Engineering Blog]]></title>
   <link href="http://xueqiu.github.com/atom.xml" rel="self"/>
   <link href="http://xueqiu.github.com/"/>
-  <updated>2012-12-18T22:40:22+08:00</updated>
+  <updated>2012-12-25T17:35:32+08:00</updated>
   <id>http://xueqiu.github.com/</id>
   <author>
     <name><![CDATA[雪球]]></name>
@@ -12,6 +12,392 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ResysChina 2012 Conference note]]></title>
+    <link href="http://xueqiu.github.com/blog/2012/12/24/resyschina-2012-conference-note/"/>
+    <updated>2012-12-24T17:53:00+08:00</updated>
+    <id>http://xueqiu.github.com/blog/2012/12/24/resyschina-2012-conference-note</id>
+    <content type="html"><![CDATA[<p>2012.12.1日，我们参加了ResysChina 2012推荐系统大会。
+大会是由ResysChina(一个面向推荐系统领域的专业社区)主办,一年一次的推荐系统行业质量比较高的大会。
+大会链接：http://www.resyschina.com/2012/ (有部分slides可下载)</p>
+
+<p>本次会议分为主题嘉宾演讲和创业团队分享两部分。</p>
+
+<h3>嘉宾分享：</h3>
+
+<p>一:Facebook推荐系统&#8211;石言心：
+  2008年加入Facebook， 就一直从事机器学习、推荐相关工作。感觉Facebook这块还是很强的。</p>
+
+<p>  他们把各种网站内容（例如，照片，朋友，游戏）和广告合在一起进行推荐，就是说一个推荐api返回的内容揉合了网站内容和广告。
+  每种内容都有非常不同的特性需要机器学习模型来学习。
+  各用户的各不同内容之间通过一定规则转换一个标准分。</p>
+
+<p>  推荐的哲学：新广告的出现占用了系统和其他的广告的展现机会。为了各方的利益均衡，广告主应该支付一个费用。具体竞价公式忘记了。
+  有个index引擎，索引用户的所有特征。用推荐器从索引里选取相应物料进行投放。选择1%的用户进行训练和实验，后验和预测的误差，决定新的模型是否会被广泛应用。小时级别的模型训练。</p>
+
+<p>  同时讲到了他们大规模数据的存储与处理，及快速的进行机器学习和反馈。</p>
+
+<p>二:Recommendation anytime, anywhere in Hulu&#8211;项亮</p>
+
+<pre><code>Hulu是一家美国视频网站，现为美国第三大视频网站。有一半多的技术在北京, 北京的团队主要负责搜索引擎、推荐系统、web播放器等。
+Hulu的mission:
+  用户：提供个性化体验，帮他们快速找到和发现符合其兴趣的内容。
+  内容合作方：更好的把内容展现给目标用户。
+  Hulu：提高用户参与度。
+
+历史：使用推荐技术的历史。从个性化视频推荐，到整站个性化。
+
+推荐产品的两种类型：
+  内容发现：帮助用户找到感兴趣的内容。
+  方便导航：让用户最快到达用户感兴趣的内容。
+
+数据驱动产品决策：
+  目标：帮用户简单、快速的跟之前看过的剧。(比如：你昨天看了越狱的第4集，今天你如果登陆我们会提醒你看第5集)。
+  排序：最早通过最后观看时间排序。
+        但需要考虑各种情况(比如：
+          是否要考虑用户对每个视频的完成度。是否看完了，看了多少分钟。
+          每天发布的剧和每周发布的剧怎么排序。
+          )
+        需要加很多规则来解决每个问题。
+        系统变得越来越复杂:
+          有很多冲突的规则
+          每个人有自己的规则
+        所以，转为采用机器学习的方法和使用数据来解决
+          从观看历史中抽取特征
+          建立模型来预测用户要看的下一个视频
+
+基于规则vs机器学习：
+    基于规则：
+      容易理解，基于领域知识，白盒。
+      很难定义适合的规则，不是基于数据，不同规则经常冲突。
+    机器学习:
+      基于数据。
+      难以解释，基本上是黑盒.
+    基于机器学习的系统:
+        一个好得基于机器学习的系统应该：
+          基于数据进行决策
+          能对其怎么运作的能提供详尽的解释
+          能很容易地增加领域知识
+</code></pre>
+
+<p>三:腾讯精准用户定向和效果广告&#8211;王益
+  分享介绍技术团队如何在腾讯严格的用户隐私保护政策下，从多种用户数据中精准挖掘用户兴趣；以及利用挖掘结果，实现推荐和广告系统中的实时获取和排序。</p>
+
+<pre><code>效果广告：
+        搜索广告
+        上下文广告
+        用户定向广告
+            无线
+            社交
+
+&lt;img src="http://xqimg.b0.upaiyun.com/13bcc612664aa3fe36249156.png" title="" &gt;
+
+语义分析：
+        问题：查询和广告描述都是短文本，信息量少，有歧义，直接文本内容匹配效果不好。
+            apple pie
+            iphone crack
+
+        解决：
+          *从海量文本数据中归纳“知识”，帮助理解语义。
+              知识：同一个主题的词聚成一类（topic）
+                  topic 1 = { apple, tree, pie, fruit, …}
+                  topic 2 = { computer, iphone, ipod, crack, apple, …}
+              理解：词空间到topic空间的投影
+                  “apple pie”                         topic 1: 99%, topic 2: 1%
+                  “iphone crack”                  topic 1: 1%,    topic 2: 99%
+
+          *搜索引擎扩展：
+                对一个query，用该query在搜索引擎进行查询，用搜索引擎中蕴含的“知识”补足信息。
+          *隐含语义分析：
+            LSA pLSA NMF LDA Peacock 
+
+用户意图分析：
+        问题：
+            用户行为数据覆盖率低
+                搜搜queries
+                拍拍transactions
+                覆盖5%用户
+
+        解决：
+            用 user feature 扩展用户兴趣
+                QQ profile：性别、年龄段、职业、学历
+                用户关系：微博fan了谁、QQ聊了谁、QQmail写给谁
+
+        算法和系统：
+            新的模型
+                用co-clustering思路，发掘用户行为模式，得到意图
+                用regression思路，得到用户feature和意图的关联。
+            新的并行算法
+                目前的并行co-clustering算法不能学习大量意图；
+            新算法同时 shard 训练数据和意图。
+                Go语言
+            语言支持concurrency，代码量是C++版本的40%。
+                实时推演算法
+</code></pre>
+
+<p>四:百度推荐系统的探索过程&#8211;刘其文<br/>
+   1:介绍了百度统一推荐平台CoreEngine</p>
+
+<pre><code>什么是CoreEngine：
+    是一个巨大的信息库
+    TA了解你是谁
+    TA能够判断什么是对你有价值的
+    TA能够知道你在什么时间、场景下需要
+
+&lt;img src="http://xqimg.b0.upaiyun.com/13bcc61943aac3fc6f81156b.png" title="" &gt;
+
+2:主要讲了三个关键问题： 
+    如何判断内容质量:
+        用户决定一切：根据用户行为来判断内容质量。
+        后验：通过后验数据来判断效果。
+        先验：主要通过基础质量、热度、时效性来判断。
+
+    如何为用户建模：
+        用户反馈：正反馈 负反馈
+
+    如何给推荐结果排序
+        根据相关性、多样性、惊喜度等排序，没有一个统一的排序标准。
+        机器学习排序：
+
+    如何把多层次的需求转化成单一优化指标：
+        离线评估：
+            供参考的baseline
+        人工评估：
+            太依赖于主观经验
+        在线评估：
+            A/B test是最客观的评价
+</code></pre>
+
+<p>  3: CoreEngine的启示：</p>
+
+<pre><code>    没有“银弹”
+        需要根据产品目标、数据现状、资源现状选择算法
+    不要手握锤子就把一切看做钉子
+        推荐只是实现产品目标的方式，不是产品目标本身
+</code></pre>
+
+<p>  介绍了百度在推荐系统数据、架构、策略和产品方面的一些探索过程。搭建了统一的基础推荐平台，且进行了跨产品推荐。
+  百度推荐系统组据说有大概100人的团队。</p>
+
+<h3>创业团队：</h3>
+
+<p>五：购物党
+  口碑搜索、正品比价，购物党通过商品、评价、价格等因素帮消费者解决买什么、去哪买的问题。
+  就是介绍了下自己的产品，没讲啥和推荐有关的内容。</p>
+
+<p>六：豌豆猜：
+  是豌豆荚推出的个性化应用推荐引擎。
+  通过分析用户的下载、安装和卸载行为，豌豆们为您挑选贴心、聪明、有趣 的应用。豌豆猜会记住您「不喜欢」的应用，并变得更加智能。
+  效果：据说下载量提升不少，具体数字没记。
+  方法：基于内容推荐和基于协同过滤综合。
+  实现：目前用的mahout，据说以后可能换(mahout大而全,使用的部分算法实现为考虑通用性效率不太高)。</p>
+
+<p>  说他们做新产品的原则是 “糙，快，猛”！先做个东西出来，不用太好看，看用户反馈，反馈明显的，再优化，否则放弃。</p>
+
+<p>七：微博寻人：</p>
+
+<pre><code>做了一个人--人，人--微博关键字，人--微博关系链。  
+数据源是爬的weibo的，专门有个产品叫中国爬萌(专业爬weibo,数据量仅次于sina)。
+
+总设计师：梁斌，此人灰常幽默。
+语录：
+  世界不公平，不平等的根源在于信息不对称，我的理想是让信息对称，人人平等。
+  大家对现在微博寻人的用户量可能没概念，大概就是盘古搜索的量。
+  有人提问如何赚钱，梁总说：为人民群众服务的时候，薅羊毛不能薅的太早！
+
+
+各大公司大规模数据处理、机器学习、推荐系统这块还是比较重视的，并不同程度上使用在其产品上。
+</code></pre>
+
+<p>近几年越来越多的公司推出了推荐系统相关的功能，以提升用户体验、增加公司收入(个性化广告)。
+还出现了不少以推荐为核心的公司和产品，比如简网、无觅、今晚看啥、百分点等。</p>
+
+<p>我们的推荐系统目前也就实现了从无到有的阶段，以后在推荐质量反馈、大数据量处理、多种内容推荐、提高学习和反馈速度等各方面需要不断提升。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[用Backbone.js绑住服务端生成的html]]></title>
+    <link href="http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html/"/>
+    <updated>2012-12-19T22:06:00+08:00</updated>
+    <id>http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html</id>
+    <content type="html"><![CDATA[<p>去年做雪球的timeline模块时我正深受 <a href="http://engineering.twitter.com/2010/09/tech-behind-new-twittercom.html">#newTwitter</a> 的影响，倾向于把尽可能多的逻辑放到客户端去做，最后实现的时候选择了<a href="http://backbonejs.org">Backbone.js</a>。使用Backbone.js的好处就不说了，这一两年它火的一塌糊涂，到处都是介绍的文章，而且这篇文章的重点也不是这个。</p>
+
+<p>下面我假设您已经了解Backbone.js的作用和实现方式。</p>
+
+<p>在页面初始化的时候，与发起一个ajax请求去取初始数据相比，把初始数据输出到页面里是一个更好的方案。Backbone.js提供了一个<a href="http://backbonejs.org/#FAQ-bootstrap">Loading Bootstrapped Models</a>的FAQ，雪球也正是这样做的。把初始数据的json输出到页面里，然后Backbone.js用这个json来渲染页面。</p>
+
+<p>但是这一年的实践中陆续发现一些问题：接口输出的timeline json里某些字段里偶尔出现一些不可见的换行符，导致浏览器解析json的时候出错。输出json字符串有injection可能（后来今年三月份的时候backbone特意在文档里加上了提示）。另外，随着业务复杂性的增长，接口直接输出的json体积在膨胀，很多属性已经不是页面展示所必须的，json的体积已经接近甚至已经超过了生成的html的体积。</p>
+
+<p>同时我还在思考另外一个问题，backbone的使用场景其实是app，<a href="http://www.documentcloud.org/">DocumentCloud</a>、<a href="https://trello.com/">Trello</a>这种需要反复对页面元素操作，应用要处理好数据和UI的一致性，初始化的时候稍微慢一点也没有关系，用backbone再好不过了。但是雪球其实更像是page，用户打开页面希望尽早的看到数据，当然我们也需要经常操作页面的元素，也需要处理数据和UI的一致性问题。</p>
+
+<p>在服务端把html就拼好然后传给浏览器似乎是最直接的答案。那么接下来就面临了这篇文章要处理的问题了，如果既用服务端渲染html，又能够继续使用现有的基于backbone的客户端程序，甚至可以随时切换渲染位置。</p>
+
+<p>backbone的文档似乎没有明确的给出这样的建议，但是稍微思考一下backbone View的实现方式应该可以想到，既然view的events是绑在一个根el上面的，那么这个el是一个空的wrapper或者已经渲染好的html片段并不影响事件的delegate。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">TimelineView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;click .comment&quot;</span><span class="o">:</span> <span class="s2">&quot;comment&quot;</span>
+</span><span class='line'>  <span class="p">}.</span>
+</span><span class='line'>  <span class="nx">comment</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+</span><span class='line'>   <span class="kd">var</span> <span class="nx">$elm</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">)</span>
+</span><span class='line'>     <span class="p">,</span> <span class="nx">statusModel</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">$elm</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">))</span>
+</span><span class='line'>   <span class="nx">renderComment</span><span class="p">(</span><span class="nx">statusModel</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">timelineHtml</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'>    <span class="c1">// some code to generate html from models</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">timelineHtml</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">statusCollection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StatusCollection</span><span class="p">(</span><span class="nx">statusList</span><span class="p">)</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">timelineView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimelineView</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">el</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#timeline&quot;</span><span class="p">),</span>
+</span><span class='line'>  <span class="nx">collection</span><span class="o">:</span> <span class="nx">statusCollection</span>
+</span><span class='line'><span class="p">})</span>
+</span><span class='line'><span class="nx">timelineView</span><span class="p">.</span><span class="nx">render</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>假设上面的一段代码是已有的客户端渲染的实现方式，需要说明的是<code>statusList</code>正是我们之前输出到页面里的timeline json，<code>$("#timeline")</code>是准备放timeline的wrapper。</p>
+
+<p>现在改成服务端渲染之后发生的变化的后果，<code>$("#timeline")</code>变成了已经塞满status的列表，<code>statusList</code>不再存在。我们挨个解决。</p>
+
+<p><code>$("#timeline")</code>既然已经填满了，就不用再render啦。最后一行就改成了：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#timeline&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">().</span><span class="nx">trim</span><span class="p">()){</span>
+</span><span class='line'>  <span class="nx">timelineView</span><span class="p">.</span><span class="nx">render</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>statusList</code>是空的，那么<code>statusCollection</code>也是空的，comment的时候就找不到status的model。本来作为json输出来的数据其实被塞到了dom里，那我们就应该找一个合适的时候把status model从dom里读出来。我选择在view初始化的时候获取，给TimelineView加上initialize方法。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">TimelineView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">models</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class='line'>      <span class="c1">// some code to read models from timeline dom</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">models</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="p">...</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>好了，客户端的代码没有任何其他要改的了，所有的backbone的功能都会跟原来一样的工作，还可以吧？</p>
+
+<p>最后完整的代码改造成了这样：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">TimelineView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">models</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class='line'>      <span class="c1">// some code to read models from timeline dom</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">models</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;click .comment&quot;</span><span class="o">:</span> <span class="s2">&quot;comment&quot;</span>
+</span><span class='line'>  <span class="p">}.</span>
+</span><span class='line'>  <span class="nx">comment</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+</span><span class='line'>   <span class="kd">var</span> <span class="nx">$elm</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">)</span>
+</span><span class='line'>     <span class="p">,</span> <span class="nx">statusModel</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">$elm</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">))</span>
+</span><span class='line'>   <span class="nx">renderComment</span><span class="p">(</span><span class="nx">statusModel</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">timelineHtml</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'>    <span class="c1">// some code to generate html from models</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">timelineHtml</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">statusCollection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StatusCollection</span><span class="p">(</span><span class="nx">statusList</span><span class="p">)</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">timelineView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimelineView</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">el</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#timeline&quot;</span><span class="p">),</span>
+</span><span class='line'>  <span class="nx">collection</span><span class="o">:</span> <span class="nx">statusCollection</span>
+</span><span class='line'><span class="p">})</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#timeline&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">().</span><span class="nx">trim</span><span class="p">()){</span>
+</span><span class='line'>  <span class="nx">timelineView</span><span class="p">.</span><span class="nx">render</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>后记</h3>
+
+<ul>
+<li>这种处理对于需要SEO，或者特殊设备支持的应用来说更有意义。</li>
+<li>服务端渲染html会给服务端带来额外的cpu消耗，但是很小。不过我们还是做了适配，可以随时切换渲染方式。</li>
+<li>服务端渲染也需要模板，客户端渲染也需要模板，这个模板如何复用？对于使用node.js的雪球来说，很好处理。这个留给以后说。</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[开篇再加上2012的一点小总结]]></title>
@@ -62,8 +448,6 @@
 <p>最近看书看到个说法(大意)历史有两种，一种是著名的，一种是不著名的，著名的历史背后都是由不著名的历史组成和引发的。</p>
 
 <p>对雪球的工程师团队来说，我们还是一支很年轻的队伍，看看这一年的改进都是非常基础性的，但对未来一定会有深远的影响。所以未来在各种提高效率的方法、工具投入任何精力都是不过分的，这也是让工程师有自我满足感的最重要因素，我个人认为没有之一。沿着这个思路，我们的目标是没有目的地的，不过方向是明确的清晰的，只要耐心踏实的坚持走下去，年轻的团队也可以很牛逼的。</p>
-
-<p><a href="http://xueqiu.com/wangdong">蘑菇树</a></p>
 ]]></content>
   </entry>
   

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Backbone.js | Xueqiu Engineering Blog]]></title>
+  <link href="http://xueqiu.github.com/blog/categories/backbone-js/atom.xml" rel="self"/>
+  <link href="http://xueqiu.github.com/"/>
+  <updated>2012-12-25T17:35:32+08:00</updated>
+  <id>http://xueqiu.github.com/</id>
+  <author>
+    <name><![CDATA[雪球]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[用Backbone.js绑住服务端生成的html]]></title>
+    <link href="http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html/"/>
+    <updated>2012-12-19T22:06:00+08:00</updated>
+    <id>http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html</id>
+    <content type="html"><![CDATA[<p>去年做雪球的timeline模块时我正深受 <a href="http://engineering.twitter.com/2010/09/tech-behind-new-twittercom.html">#newTwitter</a> 的影响，倾向于把尽可能多的逻辑放到客户端去做，最后实现的时候选择了<a href="http://backbonejs.org">Backbone.js</a>。使用Backbone.js的好处就不说了，这一两年它火的一塌糊涂，到处都是介绍的文章，而且这篇文章的重点也不是这个。</p>
+
+<p>下面我假设您已经了解Backbone.js的作用和实现方式。</p>
+
+<p>在页面初始化的时候，与发起一个ajax请求去取初始数据相比，把初始数据输出到页面里是一个更好的方案。Backbone.js提供了一个<a href="http://backbonejs.org/#FAQ-bootstrap">Loading Bootstrapped Models</a>的FAQ，雪球也正是这样做的。把初始数据的json输出到页面里，然后Backbone.js用这个json来渲染页面。</p>
+
+<p>但是这一年的实践中陆续发现一些问题：接口输出的timeline json里某些字段里偶尔出现一些不可见的换行符，导致浏览器解析json的时候出错。输出json字符串有injection可能（后来今年三月份的时候backbone特意在文档里加上了提示）。另外，随着业务复杂性的增长，接口直接输出的json体积在膨胀，很多属性已经不是页面展示所必须的，json的体积已经接近甚至已经超过了生成的html的体积。</p>
+
+<p>同时我还在思考另外一个问题，backbone的使用场景其实是app，<a href="http://www.documentcloud.org/">DocumentCloud</a>、<a href="https://trello.com/">Trello</a>这种需要反复对页面元素操作，应用要处理好数据和UI的一致性，初始化的时候稍微慢一点也没有关系，用backbone再好不过了。但是雪球其实更像是page，用户打开页面希望尽早的看到数据，当然我们也需要经常操作页面的元素，也需要处理数据和UI的一致性问题。</p>
+
+<p>在服务端把html就拼好然后传给浏览器似乎是最直接的答案。那么接下来就面临了这篇文章要处理的问题了，如果既用服务端渲染html，又能够继续使用现有的基于backbone的客户端程序，甚至可以随时切换渲染位置。</p>
+
+<p>backbone的文档似乎没有明确的给出这样的建议，但是稍微思考一下backbone View的实现方式应该可以想到，既然view的events是绑在一个根el上面的，那么这个el是一个空的wrapper或者已经渲染好的html片段并不影响事件的delegate。</p>
+
+<p>``` javascript
+var TimelineView = Backbone.View.extend({
+  events: {</p>
+
+<pre><code>"click .comment": "comment"
+</code></pre>
+
+<p>  }.
+  comment: function(e){
+   var $elm = $(e.target)</p>
+
+<pre><code> , statusModel = this.collection.get($elm.data("id"))
+</code></pre>
+
+<p>   renderComment(statusModel)
+  },
+  render: function(){</p>
+
+<pre><code>var timelineHtml = ''
+// some code to generate html from models
+$(this.el).html(timelineHtml)
+</code></pre>
+
+<p>  }
+})
+var statusCollection = new StatusCollection(statusList)
+var timelineView = new TimelineView({
+  el: $("#timeline"),
+  collection: statusCollection
+})
+timelineView.render()
+<code>``
+假设上面的一段代码是已有的客户端渲染的实现方式，需要说明的是</code>statusList<code>正是我们之前输出到页面里的timeline json，</code>$("#timeline")`是准备放timeline的wrapper。</p>
+
+<p>现在改成服务端渲染之后发生的变化的后果，<code>$("#timeline")</code>变成了已经塞满status的列表，<code>statusList</code>不再存在。我们挨个解决。</p>
+
+<p><code>$("#timeline")</code>既然已经填满了，就不用再render啦。最后一行就改成了：
+<code>javascript
+if ($("#timeline").html().trim()){
+  timelineView.render()
+}
+</code></p>
+
+<p><code>statusList</code>是空的，那么<code>statusCollection</code>也是空的，comment的时候就找不到status的model。本来作为json输出来的数据其实被塞到了dom里，那我们就应该找一个合适的时候把status model从dom里读出来。我选择在view初始化的时候获取，给TimelineView加上initialize方法。
+``` javascript
+var TimelineView = Backbone.View.extend({
+  initialize: function(){</p>
+
+<pre><code>if (this.collection.length) {
+  var models = []
+  // some code to read models from timeline dom
+  this.collection.add(models)
+}
+</code></pre>
+
+<p>  },
+  ...
+})
+```
+好了，客户端的代码没有任何其他要改的了，所有的backbone的功能都会跟原来一样的工作，还可以吧？</p>
+
+<p>最后完整的代码改造成了这样：</p>
+
+<p>``` javascript
+var TimelineView = Backbone.View.extend({
+  initialize: function(){</p>
+
+<pre><code>if (this.collection.length) {
+  var models = []
+  // some code to read models from timeline dom
+  this.collection.add(models)
+}
+</code></pre>
+
+<p>  },
+  events: {</p>
+
+<pre><code>"click .comment": "comment"
+</code></pre>
+
+<p>  }.
+  comment: function(e){
+   var $elm = $(e.target)</p>
+
+<pre><code> , statusModel = this.collection.get($elm.data("id"))
+</code></pre>
+
+<p>   renderComment(statusModel)
+  },
+  render: function(){</p>
+
+<pre><code>var timelineHtml = ''
+// some code to generate html from models
+$(this.el).html(timelineHtml)
+</code></pre>
+
+<p>  }
+})
+var statusCollection = new StatusCollection(statusList)
+var timelineView = new TimelineView({
+  el: $("#timeline"),
+  collection: statusCollection
+})
+if ($("#timeline").html().trim()){
+  timelineView.render()
+}
+```</p>
+
+<h3>后记</h3>
+
+<ul>
+<li>这种处理对于需要SEO，或者特殊设备支持的应用来说更有意义。</li>
+<li>服务端渲染html会给服务端带来额外的cpu消耗，但是很小。不过我们还是做了适配，可以随时切换渲染方式。</li>
+<li>服务端渲染也需要模板，客户端渲染也需要模板，这个模板如何复用？对于使用node.js的雪球来说，很好处理。这个留给以后说。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Xueqiu Engineering Blog</title>
+  <title>用Backbone.js绑住服务端生成的html - Xueqiu Engineering Blog</title>
   <meta name="author" content="雪球">
 
   
-  <meta name="description" content="2012.12.1日，我们参加了ResysChina 2012推荐系统大会。
-大会是由ResysChina(一个面向推荐系统领域的专业社区)主办,一年一次的推荐系统行业质量比较高的大会。
-大会链接：http://www.resyschina.com/2012/ (有部分slides可下载) &hellip;">
+  <meta name="description" content="去年做雪球的timeline模块时我正深受 #newTwitter 的影响，倾向于把尽可能多的逻辑放到客户端去做，最后实现的时候选择了Backbone.js。使用Backbone.js的好处就不说了，这一两年它火的一塌糊涂，到处都是介绍的文章，而且这篇文章的重点也不是这个。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xueqiu.github.com/">
+  <link rel="canonical" href="http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html/">
   <link rel="shortcut icon" href="http://xueqiu.com/favicon.ico">
   <link rel="icon" type="image/png" href="http://assets.xueqiu.com/images/favicon.png">
 
@@ -66,248 +64,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/12/24/resyschina-2012-conference-note/">ResysChina 2012 Conference Note</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-24T17:53:00+08:00" pubdate data-updated="true">Dec 24<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/12/24/resyschina-2012-conference-note/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>2012.12.1日，我们参加了ResysChina 2012推荐系统大会。
-大会是由ResysChina(一个面向推荐系统领域的专业社区)主办,一年一次的推荐系统行业质量比较高的大会。
-大会链接：http://www.resyschina.com/2012/ (有部分slides可下载)</p>
-
-<p>本次会议分为主题嘉宾演讲和创业团队分享两部分。</p>
-
-<h3>嘉宾分享：</h3>
-
-<p>一:Facebook推荐系统&#8211;石言心：
-  2008年加入Facebook， 就一直从事机器学习、推荐相关工作。感觉Facebook这块还是很强的。</p>
-
-<p>  他们把各种网站内容（例如，照片，朋友，游戏）和广告合在一起进行推荐，就是说一个推荐api返回的内容揉合了网站内容和广告。
-  每种内容都有非常不同的特性需要机器学习模型来学习。
-  各用户的各不同内容之间通过一定规则转换一个标准分。</p>
-
-<p>  推荐的哲学：新广告的出现占用了系统和其他的广告的展现机会。为了各方的利益均衡，广告主应该支付一个费用。具体竞价公式忘记了。
-  有个index引擎，索引用户的所有特征。用推荐器从索引里选取相应物料进行投放。选择1%的用户进行训练和实验，后验和预测的误差，决定新的模型是否会被广泛应用。小时级别的模型训练。</p>
-
-<p>  同时讲到了他们大规模数据的存储与处理，及快速的进行机器学习和反馈。</p>
-
-<p>二:Recommendation anytime, anywhere in Hulu&#8211;项亮</p>
-
-<pre><code>Hulu是一家美国视频网站，现为美国第三大视频网站。有一半多的技术在北京, 北京的团队主要负责搜索引擎、推荐系统、web播放器等。
-Hulu的mission:
-  用户：提供个性化体验，帮他们快速找到和发现符合其兴趣的内容。
-  内容合作方：更好的把内容展现给目标用户。
-  Hulu：提高用户参与度。
-
-历史：使用推荐技术的历史。从个性化视频推荐，到整站个性化。
-
-推荐产品的两种类型：
-  内容发现：帮助用户找到感兴趣的内容。
-  方便导航：让用户最快到达用户感兴趣的内容。
-
-数据驱动产品决策：
-  目标：帮用户简单、快速的跟之前看过的剧。(比如：你昨天看了越狱的第4集，今天你如果登陆我们会提醒你看第5集)。
-  排序：最早通过最后观看时间排序。
-        但需要考虑各种情况(比如：
-          是否要考虑用户对每个视频的完成度。是否看完了，看了多少分钟。
-          每天发布的剧和每周发布的剧怎么排序。
-          )
-        需要加很多规则来解决每个问题。
-        系统变得越来越复杂:
-          有很多冲突的规则
-          每个人有自己的规则
-        所以，转为采用机器学习的方法和使用数据来解决
-          从观看历史中抽取特征
-          建立模型来预测用户要看的下一个视频
-
-基于规则vs机器学习：
-    基于规则：
-      容易理解，基于领域知识，白盒。
-      很难定义适合的规则，不是基于数据，不同规则经常冲突。
-    机器学习:
-      基于数据。
-      难以解释，基本上是黑盒.
-    基于机器学习的系统:
-        一个好得基于机器学习的系统应该：
-          基于数据进行决策
-          能对其怎么运作的能提供详尽的解释
-          能很容易地增加领域知识
-</code></pre>
-
-<p>三:腾讯精准用户定向和效果广告&#8211;王益
-  分享介绍技术团队如何在腾讯严格的用户隐私保护政策下，从多种用户数据中精准挖掘用户兴趣；以及利用挖掘结果，实现推荐和广告系统中的实时获取和排序。</p>
-
-<pre><code>效果广告：
-        搜索广告
-        上下文广告
-        用户定向广告
-            无线
-            社交
-
-&lt;img src="http://xqimg.b0.upaiyun.com/13bcc612664aa3fe36249156.png" title="" &gt;
-
-语义分析：
-        问题：查询和广告描述都是短文本，信息量少，有歧义，直接文本内容匹配效果不好。
-            apple pie
-            iphone crack
-
-        解决：
-          *从海量文本数据中归纳“知识”，帮助理解语义。
-              知识：同一个主题的词聚成一类（topic）
-                  topic 1 = { apple, tree, pie, fruit, …}
-                  topic 2 = { computer, iphone, ipod, crack, apple, …}
-              理解：词空间到topic空间的投影
-                  “apple pie”                         topic 1: 99%, topic 2: 1%
-                  “iphone crack”                  topic 1: 1%,    topic 2: 99%
-
-          *搜索引擎扩展：
-                对一个query，用该query在搜索引擎进行查询，用搜索引擎中蕴含的“知识”补足信息。
-          *隐含语义分析：
-            LSA pLSA NMF LDA Peacock 
-
-用户意图分析：
-        问题：
-            用户行为数据覆盖率低
-                搜搜queries
-                拍拍transactions
-                覆盖5%用户
-
-        解决：
-            用 user feature 扩展用户兴趣
-                QQ profile：性别、年龄段、职业、学历
-                用户关系：微博fan了谁、QQ聊了谁、QQmail写给谁
-
-        算法和系统：
-            新的模型
-                用co-clustering思路，发掘用户行为模式，得到意图
-                用regression思路，得到用户feature和意图的关联。
-            新的并行算法
-                目前的并行co-clustering算法不能学习大量意图；
-            新算法同时 shard 训练数据和意图。
-                Go语言
-            语言支持concurrency，代码量是C++版本的40%。
-                实时推演算法
-</code></pre>
-
-<p>四:百度推荐系统的探索过程&#8211;刘其文<br/>
-   1:介绍了百度统一推荐平台CoreEngine</p>
-
-<pre><code>什么是CoreEngine：
-    是一个巨大的信息库
-    TA了解你是谁
-    TA能够判断什么是对你有价值的
-    TA能够知道你在什么时间、场景下需要
-
-&lt;img src="http://xqimg.b0.upaiyun.com/13bcc61943aac3fc6f81156b.png" title="" &gt;
-
-2:主要讲了三个关键问题： 
-    如何判断内容质量:
-        用户决定一切：根据用户行为来判断内容质量。
-        后验：通过后验数据来判断效果。
-        先验：主要通过基础质量、热度、时效性来判断。
-
-    如何为用户建模：
-        用户反馈：正反馈 负反馈
-
-    如何给推荐结果排序
-        根据相关性、多样性、惊喜度等排序，没有一个统一的排序标准。
-        机器学习排序：
-
-    如何把多层次的需求转化成单一优化指标：
-        离线评估：
-            供参考的baseline
-        人工评估：
-            太依赖于主观经验
-        在线评估：
-            A/B test是最客观的评价
-</code></pre>
-
-<p>  3: CoreEngine的启示：</p>
-
-<pre><code>    没有“银弹”
-        需要根据产品目标、数据现状、资源现状选择算法
-    不要手握锤子就把一切看做钉子
-        推荐只是实现产品目标的方式，不是产品目标本身
-</code></pre>
-
-<p>  介绍了百度在推荐系统数据、架构、策略和产品方面的一些探索过程。搭建了统一的基础推荐平台，且进行了跨产品推荐。
-  百度推荐系统组据说有大概100人的团队。</p>
-
-<h3>创业团队：</h3>
-
-<p>五：购物党
-  口碑搜索、正品比价，购物党通过商品、评价、价格等因素帮消费者解决买什么、去哪买的问题。
-  就是介绍了下自己的产品，没讲啥和推荐有关的内容。</p>
-
-<p>六：豌豆猜：
-  是豌豆荚推出的个性化应用推荐引擎。
-  通过分析用户的下载、安装和卸载行为，豌豆们为您挑选贴心、聪明、有趣 的应用。豌豆猜会记住您「不喜欢」的应用，并变得更加智能。
-  效果：据说下载量提升不少，具体数字没记。
-  方法：基于内容推荐和基于协同过滤综合。
-  实现：目前用的mahout，据说以后可能换(mahout大而全,使用的部分算法实现为考虑通用性效率不太高)。</p>
-
-<p>  说他们做新产品的原则是 “糙，快，猛”！先做个东西出来，不用太好看，看用户反馈，反馈明显的，再优化，否则放弃。</p>
-
-<p>七：微博寻人：</p>
-
-<pre><code>做了一个人--人，人--微博关键字，人--微博关系链。  
-数据源是爬的weibo的，专门有个产品叫中国爬萌(专业爬weibo,数据量仅次于sina)。
-
-总设计师：梁斌，此人灰常幽默。
-语录：
-  世界不公平，不平等的根源在于信息不对称，我的理想是让信息对称，人人平等。
-  大家对现在微博寻人的用户量可能没概念，大概就是盘古搜索的量。
-  有人提问如何赚钱，梁总说：为人民群众服务的时候，薅羊毛不能薅的太早！
-
-
-各大公司大规模数据处理、机器学习、推荐系统这块还是比较重视的，并不同程度上使用在其产品上。
-</code></pre>
-
-<p>近几年越来越多的公司推出了推荐系统相关的功能，以提升用户体验、增加公司收入(个性化广告)。
-还出现了不少以推荐为核心的公司和产品，比如简网、无觅、今晚看啥、百分点等。</p>
-
-<p>我们的推荐系统目前也就实现了从无到有的阶段，以后在推荐质量反馈、大数据量处理、多种内容推荐、提高学习和反馈速度等各方面需要不断提升。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/19/backbone-js-with-server-rendered-html/">用Backbone.js绑住服务端生成的html</a></h1>
+      <h1 class="entry-title">用Backbone.js绑住服务端生成的html</h1>
     
     
       <p class="meta">
@@ -325,14 +87,14 @@ Hulu的mission:
 
 <time datetime="2012-12-19T22:06:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2012</time>
         
-         | <a href="/blog/2012/12/19/backbone-js-with-server-rendered-html/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>去年做雪球的timeline模块时我正深受 <a href="http://engineering.twitter.com/2010/09/tech-behind-new-twittercom.html">#newTwitter</a> 的影响，倾向于把尽可能多的逻辑放到客户端去做，最后实现的时候选择了<a href="http://backbonejs.org">Backbone.js</a>。使用Backbone.js的好处就不说了，这一两年它火的一塌糊涂，到处都是介绍的文章，而且这篇文章的重点也不是这个。</p>
+<div class="entry-content"><p>去年做雪球的timeline模块时我正深受 <a href="http://engineering.twitter.com/2010/09/tech-behind-new-twittercom.html">#newTwitter</a> 的影响，倾向于把尽可能多的逻辑放到客户端去做，最后实现的时候选择了<a href="http://backbonejs.org">Backbone.js</a>。使用Backbone.js的好处就不说了，这一两年它火的一塌糊涂，到处都是介绍的文章，而且这篇文章的重点也不是这个。</p>
 
 <p>下面我假设您已经了解Backbone.js的作用和实现方式。</p>
 
@@ -507,22 +269,20 @@ Hulu的mission:
 </ul>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/18/review-of-2012/">开篇再加上2012的一点小总结</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">
+  
+    <a href="http://xueqiu.com/mengxy">蒙懵猛孟</a>
+  
+</span></span>
+
+      
 
 
 
@@ -534,72 +294,44 @@ Hulu的mission:
   
 
 
-<time datetime="2012-12-18T11:17:00+08:00" pubdate data-updated="true">Dec 18<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/12/18/review-of-2012/#disqus_thread">Comments</a>
-        
-      </p>
+<time datetime="2012-12-19T22:06:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/backbone-js/'>Backbone.js</a>, <a class='category' href='/blog/categories/frontend/'>Frontend</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>欢迎来到雪球工程师团队博客！</p>
-
-<p>马上就到年底了，也不知道这第一篇博客会不会成为最后一篇 (-_-#) 不管了，来一篇今年的总结作为开篇顺便展望一下未来 &#8230;</p>
-
-<h3>团队</h3>
-
-<p>今年人员上最大的变化是补充了移动团队，从无到有已经形成了比较完整的队伍。各个根据项目组合而成的小组也有了自己比较专注的目标，而且项目上多少都会有一些挑战而不是简单的重复性工作。总体上上看我们的工程师团队是按照计划完成了我们每一个阶段的开发任务。</p>
-
-<h3>开发实践</h3>
-
-<p>产品开发的组织上我们从年初的半年一个里程碑，逐渐缩短，后来是三个月，现在已经是每个月一个里程碑，这其中的原因是因为针对一些遇到的问题我们引入了一些方法和工具有效的提升了效率。</p>
-
-<h4>站立早会</h4>
-
-<p>一开始我们也没有特别的流程打到哪指到那，渐渐的为了团队之间的沟通更顺利，我们增加了开发之前的沟通与设计，还增加了每日(或隔日)的站立早会。早会上大家会回答三个问题：我之前做了什么？我现在在做什么？有什么需要讨论的问题？早会的效果可以说是很不错的，可以及时的发现问题然后有针对性的去解决掉，还可以督促工程师每天对已经完成的和将要做的事情提前有个计划。</p>
-
-<h4>Code Review</h4>
-
-<p>在我们的几个核心项目上，之前一直都是谁写的代码谁知道，其他人可能并不知道实现细节，也不知道是否实现的过程中有什么隐藏的问题。一直想找一个能够比较好进行 Code Review 的办法，不得法。找来找去发现其实 github 的 pull request 方式是最符合我们需要的方式，不过 github 的服务器对我们来说有点慢，弄个 Enterprise 版本又太贵，后来开窍了我们一直在用 <a href="http://www.redmine.org">Redmine</a> 做项目管理，那我们干脆就山寨一个 Pull Request 好了。</p>
-
-<p>成果在这里 <a href="https://github.com/xueqiu/redmine_pull_requests">https://github.com/xueqiu/redmine_pull_requests</a> 欢迎 Fork 。使用半年来我们一共开启了将近 1000 个 request 了！通过引入方便的工具降低大家对改变的畏惧心理是个很有用的方法，一旦用上了就体会到好处变成习惯了。用这个工具我们还是提前发现了不少问题，更多的同学对其他人的代码也有了了解，因为有人要 review 自己的代码，也自觉的不能写的太差劲了 (-__-) 对提高代码质量还是很有帮助的。</p>
-
-<h4>测试</h4>
-
-<p>到今天我们的核心的项目都有了自己完整的、容易编写的自动化测试框架，这些项目包括 Java Web Service / NodeJS / iOS / Android ，虽然还没有很高的覆盖率，不过从新做(修改)的功能开始已经逐步开始补上和完善。测试代码不能解决逻辑问题，但可以避免人为出现的低级错误，谁用谁知道啊。</p>
-
-<p>未来雪球可能也会有测试团队，但是测试团队的任务绝对不是手工点界面测试甚至不是写业务的测试代码，而是维护各种测试工具、推广测试的最佳实践，最适合写测试的人是开发者自己。</p>
-
-<h4>运维</h4>
-
-<p>对于我们现在的规模谈架构可能比较虚，我们把这项工作叫做运维吧，今年做了几个调整</p>
-
-<ul>
-<li>集中数据库，方便维护与调优</li>
-<li>独立缓存集群，扩大容量，隔离与其他系统的交叉</li>
-<li>合并服务，把尽合并的服务合并在一起（同一个项目或者同一台服务器），充分利用服务器资源</li>
-</ul>
-
-
-<h3>展望</h3>
-
-<p>最近看书看到个说法(大意)历史有两种，一种是著名的，一种是不著名的，著名的历史背后都是由不著名的历史组成和引发的。</p>
-
-<p>对雪球的工程师团队来说，我们还是一支很年轻的队伍，看看这一年的改进都是非常基础性的，但对未来一定会有深远的影响。所以未来在各种提高效率的方法、工具投入任何精力都是不过分的，这也是让工程师有自我满足感的最重要因素，我个人认为没有之一。沿着这个思路，我们的目标是没有目的地的，不过方向是明确的清晰的，只要耐心踏实的坚持走下去，年轻的团队也可以很牛逼的。</p>
+      <div class="sharing">
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/12/18/review-of-2012/" title="Previous Post: 开篇再加上2012的一点小总结">&laquo; 开篇再加上2012的一点小总结</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/12/24/resyschina-2012-conference-note/" title="Next Post: ResysChina 2012 Conference note">ResysChina 2012 Conference note &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -624,7 +356,7 @@ Hulu的mission:
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/xueqiu">@xueqiu</a> on GitHub
@@ -658,6 +390,7 @@ Hulu的mission:
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -672,7 +405,10 @@ Hulu的mission:
       var disqus_shortname = 'xueqiuengineering';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html/';
+        var disqus_url = 'http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
