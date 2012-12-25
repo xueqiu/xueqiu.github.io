@@ -3,7 +3,7 @@ layout: post
 title: "ResysChina 2012 Conference note"
 date: 2012-12-24 17:53
 comments: true
-categories: 推荐系统 机器学习
+categories: recommendation machine-learning
 author: 邓路 周敏
 author_url: "http://xueqiu.com/louis36"
 ---
