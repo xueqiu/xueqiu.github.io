@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: production | Xueqiu Engineering Blog]]></title>
+  <link href="http://xueqiu.github.com/blog/categories/production/atom.xml" rel="self"/>
+  <link href="http://xueqiu.github.com/"/>
+  <updated>2012-12-26T13:02:45+08:00</updated>
+  <id>http://xueqiu.github.com/</id>
+  <author>
+    <name><![CDATA[雪球]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[2013，一个「移动」公司]]></title>
+    <link href="http://xueqiu.github.com/blog/2012/12/26/a-mobile-company/"/>
+    <updated>2012-12-26T12:53:00+08:00</updated>
+    <id>http://xueqiu.github.com/blog/2012/12/26/a-mobile-company</id>
+    <content type="html"><![CDATA[<p><a href="http://xueqiu.com">雪球</a>， 是一个投资者的社交网络；<a href="http://www.snowballfinance.com">雪球公司</a>，是一家互联网金融服务提供商。</p>
+
+<p><img src="/assets/snowball-about.png" title="关于雪球" alt="关于雪球" /></p>
+
+<p>2012年，雪球组建了移动产品开发团队。大部分时间里，这个团队由一个 产品经理，一个 iOS 工程师，一个 Android 工程师构成，主要的工作是把雪球的web产品移动化。10月后，我们又迎来了第二位 iOS 和第二位 Android 工程师。</p>
+
+<p>在经过2个大版本和平均每个月一个用户可见的小版本迭代后，雪球的移动和网页产品基本处在了相同的水准线。移动产品和团队，在雪球也经历了两种生产和合作模式。</p>
+
+<ol>
+<li><p>2012年1-9月，网页产品移动化</p>
+
+<p>网页产品移动化，这是任何一家想做移动互联网产品的互联网公司直觉的做法。</p>
+
+<p>我们把雪球产品分为投资和社交两个方向，由移动产品经理和设计师将线上产品转化成 iPhone 和 Android 产品原型；由移动工程师将后端 API 实现 iPhone 和 Android 的封装。</p></li>
+<li><p>2012年9月至今，移动优先</p>
+
+<p> 一个好的移动产品，并不是简单实现平台迁移的事情。我们开始做一些符合移动场景下的用户界面和交互优化；开始做一些移动产品独有的功能。</p>
+
+<p> 但这种模式同样有明显的缺点，移动团队和原来的网页产品处于平行线；移动产品在通用功能开发时间上基本都落后于网页产品。移动产品经理需要对所有产品都完全了解，需要处理产品每个细小迭代和改动，随着产品的演进，这几乎是不可能的事情。</p>
+
+<p> 这可以做一款合格的移动产品，但还是做不了优秀的产品。</p></li>
+</ol>
+
+
+<p>回到Big-Picture，一个稍微神志清醒的公司和团队都知道移动互联网意味着什么；看雪球自身的数据，最近一个月，雪球的DAU用户中大约有45%使用移动产品，移动客户端各种指标都在更高速增长。</p>
+
+<p>所以，2013，我们主要有什么变化呢？做一家移动互联网公司。</p>
+
+<p><strong>变化</strong>：</p>
+
+<ol>
+<li>我们在讨论任何一个功能的时候，网页和移动都是同时考虑必选项；</li>
+<li>产品开发的优先级不是先网页后移动的区分，只有对功能实现的优先级区分；</li>
+<li>产品经理的分工，主要从「平台不同分工」变成「功能不同分工」。原来的网页产品经理负责每个feature的网页和移动端；原来的移动产品经理专注移动产品整体界面、交互与 iOS 和 Android 的本地化体验，专注移动自身场景下独有feature的产品设计和开发。</li>
+<li>移动开发工程师对产品功能和系统本地化有更优的实现，与web工程师一样逐步按业务模块分工。</li>
+</ol>
+
+
+<p><strong>挑战</strong>：</p>
+
+<ol>
+<li>产品经理：每个产品经理需要对移动平台更熟悉。</li>
+<li>后端工程师：后端在程序设计上考虑跨平台实现。还好，雪球的后端团队，从一开始就面向多终端实现。后端与web前端和mobile前端都是通过 API 接口通信。当然，明年后端工场团队需要为移动网络下做更多的接口优化。</li>
+<li>web 工程师：雪球的移动产品，采取了 native 为主，html5 为辅的方式。随着移动OS和html5的发展，web工程师在移动开发过程中的作用会越来越重要。</li>
+<li>mobile 工程师： 更早参与到产品设计过程，持续对业务模块迭代；对系统本地化的交互、体验做的更优。</li>
+</ol>
+
+
+<p>优秀的团队，每个成员能很快找到新方式下的位置。
+在明年这个时候，雪球也可以自信在本文第一句前加上「移动」二字。</p>
+]]></content>
+  </entry>
+  
+</feed>
