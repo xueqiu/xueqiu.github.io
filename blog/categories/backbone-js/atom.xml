@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Backbone.js | Xueqiu Engineering Blog]]></title>
-  <link href="http://xueqiu.github.com/blog/categories/backbone-js/atom.xml" rel="self"/>
-  <link href="http://xueqiu.github.com/"/>
-  <updated>2014-12-26T13:45:42+08:00</updated>
-  <id>http://xueqiu.github.com/</id>
+  <link href="http://xueqiu.github.io/blog/categories/backbone-js/atom.xml" rel="self"/>
+  <link href="http://xueqiu.github.io/"/>
+  <updated>2014-12-26T13:49:06+08:00</updated>
+  <id>http://xueqiu.github.io/</id>
   <author>
     <name><![CDATA[雪球]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[用Backbone.js绑住服务端生成的html]]></title>
-    <link href="http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html/"/>
+    <link href="http://xueqiu.github.io/blog/2012/12/19/backbone-js-with-server-rendered-html/"/>
     <updated>2012-12-19T22:06:00+08:00</updated>
-    <id>http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html</id>
+    <id>http://xueqiu.github.io/blog/2012/12/19/backbone-js-with-server-rendered-html</id>
     <content type="html"><![CDATA[<p>去年做雪球的timeline模块时我正深受 <a href="http://engineering.twitter.com/2010/09/tech-behind-new-twittercom.html">#newTwitter</a> 的影响，倾向于把尽可能多的逻辑放到客户端去做，最后实现的时候选择了<a href="http://backbonejs.org">Backbone.js</a>。使用Backbone.js的好处就不说了，这一两年它火的一塌糊涂，到处都是介绍的文章，而且这篇文章的重点也不是这个。</p>
 
 <p>下面我假设您已经了解Backbone.js的作用和实现方式。</p>

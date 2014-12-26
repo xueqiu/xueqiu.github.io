@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: recommendation | Xueqiu Engineering Blog]]></title>
-  <link href="http://xueqiu.github.com/blog/categories/recommendation/atom.xml" rel="self"/>
-  <link href="http://xueqiu.github.com/"/>
-  <updated>2014-12-26T13:45:42+08:00</updated>
-  <id>http://xueqiu.github.com/</id>
+  <link href="http://xueqiu.github.io/blog/categories/recommendation/atom.xml" rel="self"/>
+  <link href="http://xueqiu.github.io/"/>
+  <updated>2014-12-26T13:49:06+08:00</updated>
+  <id>http://xueqiu.github.io/</id>
   <author>
     <name><![CDATA[雪球]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ResysChina 2012 Conference note]]></title>
-    <link href="http://xueqiu.github.com/blog/2012/12/24/resyschina-2012-conference-note/"/>
+    <link href="http://xueqiu.github.io/blog/2012/12/24/resyschina-2012-conference-note/"/>
     <updated>2012-12-24T17:53:00+08:00</updated>
-    <id>http://xueqiu.github.com/blog/2012/12/24/resyschina-2012-conference-note</id>
+    <id>http://xueqiu.github.io/blog/2012/12/24/resyschina-2012-conference-note</id>
     <content type="html"><![CDATA[<p>2012.12.1日，我们参加了ResysChina 2012推荐系统大会。
 大会是由ResysChina(一个面向推荐系统领域的专业社区)主办,一年一次的推荐系统行业质量比较高的大会。
 大会链接：http://www.resyschina.com/2012/ (有部分slides可下载)</p>

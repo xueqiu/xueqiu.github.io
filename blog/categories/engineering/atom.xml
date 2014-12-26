@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Engineering | Xueqiu Engineering Blog]]></title>
-  <link href="http://xueqiu.github.com/blog/categories/engineering/atom.xml" rel="self"/>
-  <link href="http://xueqiu.github.com/"/>
-  <updated>2014-12-26T13:45:42+08:00</updated>
-  <id>http://xueqiu.github.com/</id>
+  <link href="http://xueqiu.github.io/blog/categories/engineering/atom.xml" rel="self"/>
+  <link href="http://xueqiu.github.io/"/>
+  <updated>2014-12-26T13:49:06+08:00</updated>
+  <id>http://xueqiu.github.io/</id>
   <author>
     <name><![CDATA[雪球]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[开篇再加上2012的一点小总结]]></title>
-    <link href="http://xueqiu.github.com/blog/2012/12/18/review-of-2012/"/>
+    <link href="http://xueqiu.github.io/blog/2012/12/18/review-of-2012/"/>
     <updated>2012-12-18T11:17:00+08:00</updated>
-    <id>http://xueqiu.github.com/blog/2012/12/18/review-of-2012</id>
+    <id>http://xueqiu.github.io/blog/2012/12/18/review-of-2012</id>
     <content type="html"><![CDATA[<p>欢迎来到雪球工程师团队博客！</p>
 
 <p>马上就到年底了，也不知道这第一篇博客会不会成为最后一篇 (-_-#) 不管了，来一篇今年的总结作为开篇顺便展望一下未来 ...</p>

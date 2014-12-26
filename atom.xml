@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Xueqiu Engineering Blog]]></title>
-  <link href="http://xueqiu.github.com/atom.xml" rel="self"/>
-  <link href="http://xueqiu.github.com/"/>
-  <updated>2014-12-26T13:45:42+08:00</updated>
-  <id>http://xueqiu.github.com/</id>
+  <link href="http://xueqiu.github.io/atom.xml" rel="self"/>
+  <link href="http://xueqiu.github.io/"/>
+  <updated>2014-12-26T13:49:06+08:00</updated>
+  <id>http://xueqiu.github.io/</id>
   <author>
     <name><![CDATA[雪球]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Redis集群的数据划分与扩容探讨]]></title>
-    <link href="http://xueqiu.github.com/blog/2014/12/26/redis-capacity-planning/"/>
+    <link href="http://xueqiu.github.io/blog/2014/12/26/redis-capacity-planning/"/>
     <updated>2014-12-26T10:23:00+08:00</updated>
-    <id>http://xueqiu.github.com/blog/2014/12/26/redis-capacity-planning</id>
+    <id>http://xueqiu.github.io/blog/2014/12/26/redis-capacity-planning</id>
     <content type="html"><![CDATA[<p>首先界定一下，本文探讨的标的不是官方即将发布的Redis 3.0 Cluster，而是自行实现的一个生产环境中的Redis集群。这是一个典型的分布式系统，以下讨论将围绕CAP原理中，与P相关的数据划分和扩容两个问题展开。</p>
 
 <h3>目标</h3>
@@ -137,12 +137,12 @@
   
   <entry>
     <title type="html"><![CDATA[2013，一个「移动」公司]]></title>
-    <link href="http://xueqiu.github.com/blog/2012/12/26/a-mobile-company/"/>
+    <link href="http://xueqiu.github.io/blog/2012/12/26/a-mobile-company/"/>
     <updated>2012-12-26T12:53:00+08:00</updated>
-    <id>http://xueqiu.github.com/blog/2012/12/26/a-mobile-company</id>
+    <id>http://xueqiu.github.io/blog/2012/12/26/a-mobile-company</id>
     <content type="html"><![CDATA[<p><a href="http://xueqiu.com">雪球</a>， 是一个投资者的社交网络；<a href="http://www.snowballfinance.com">雪球公司</a>，是一家互联网金融服务提供商。</p>
 
-<p><img src="http://xueqiu.github.com/assets/snowball-about.png" title="关于雪球" alt="关于雪球" /></p>
+<p><img src="http://xueqiu.github.io/assets/snowball-about.png" title="关于雪球" alt="关于雪球" /></p>
 
 <p>2012年，雪球组建了移动产品开发团队。大部分时间里，这个团队由一个 产品经理，一个 iOS 工程师，一个 Android 工程师构成，主要的工作是把雪球的web产品移动化。10月后，我们又迎来了第二位 iOS 和第二位 Android 工程师。</p>
 
@@ -195,9 +195,9 @@
   
   <entry>
     <title type="html"><![CDATA[ResysChina 2012 Conference note]]></title>
-    <link href="http://xueqiu.github.com/blog/2012/12/24/resyschina-2012-conference-note/"/>
+    <link href="http://xueqiu.github.io/blog/2012/12/24/resyschina-2012-conference-note/"/>
     <updated>2012-12-24T17:53:00+08:00</updated>
-    <id>http://xueqiu.github.com/blog/2012/12/24/resyschina-2012-conference-note</id>
+    <id>http://xueqiu.github.io/blog/2012/12/24/resyschina-2012-conference-note</id>
     <content type="html"><![CDATA[<p>2012.12.1日，我们参加了ResysChina 2012推荐系统大会。
 大会是由ResysChina(一个面向推荐系统领域的专业社区)主办,一年一次的推荐系统行业质量比较高的大会。
 大会链接：http://www.resyschina.com/2012/ (有部分slides可下载)</p>
@@ -395,9 +395,9 @@ A/B test是最客观的评价</p>
   
   <entry>
     <title type="html"><![CDATA[用Backbone.js绑住服务端生成的html]]></title>
-    <link href="http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html/"/>
+    <link href="http://xueqiu.github.io/blog/2012/12/19/backbone-js-with-server-rendered-html/"/>
     <updated>2012-12-19T22:06:00+08:00</updated>
-    <id>http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html</id>
+    <id>http://xueqiu.github.io/blog/2012/12/19/backbone-js-with-server-rendered-html</id>
     <content type="html"><![CDATA[<p>去年做雪球的timeline模块时我正深受 <a href="http://engineering.twitter.com/2010/09/tech-behind-new-twittercom.html">#newTwitter</a> 的影响，倾向于把尽可能多的逻辑放到客户端去做，最后实现的时候选择了<a href="http://backbonejs.org">Backbone.js</a>。使用Backbone.js的好处就不说了，这一两年它火的一塌糊涂，到处都是介绍的文章，而且这篇文章的重点也不是这个。</p>
 
 <p>下面我假设您已经了解Backbone.js的作用和实现方式。</p>
@@ -577,9 +577,9 @@ A/B test是最客观的评价</p>
   
   <entry>
     <title type="html"><![CDATA[开篇再加上2012的一点小总结]]></title>
-    <link href="http://xueqiu.github.com/blog/2012/12/18/review-of-2012/"/>
+    <link href="http://xueqiu.github.io/blog/2012/12/18/review-of-2012/"/>
     <updated>2012-12-18T11:17:00+08:00</updated>
-    <id>http://xueqiu.github.com/blog/2012/12/18/review-of-2012</id>
+    <id>http://xueqiu.github.io/blog/2012/12/18/review-of-2012</id>
     <content type="html"><![CDATA[<p>欢迎来到雪球工程师团队博客！</p>
 
 <p>马上就到年底了，也不知道这第一篇博客会不会成为最后一篇 (-_-#) 不管了，来一篇今年的总结作为开篇顺便展望一下未来 &#8230;</p>

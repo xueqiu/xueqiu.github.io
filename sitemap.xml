@@ -1,31 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://xueqiu.github.com/blog/2012/12/18/review-of-2012/</loc>
+        <loc>http://xueqiu.github.io/blog/2012/12/18/review-of-2012/</loc>
         <lastmod>2012-12-25T17:34:03+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xueqiu.github.com/blog/2012/12/19/backbone-js-with-server-rendered-html/</loc>
+        <loc>http://xueqiu.github.io/blog/2012/12/19/backbone-js-with-server-rendered-html/</loc>
         <lastmod>2012-12-25T17:31:44+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xueqiu.github.com/blog/2012/12/24/resyschina-2012-conference-note/</loc>
+        <loc>http://xueqiu.github.io/blog/2012/12/24/resyschina-2012-conference-note/</loc>
         <lastmod>2012-12-25T17:46:43+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xueqiu.github.com/blog/2012/12/26/a-mobile-company/</loc>
+        <loc>http://xueqiu.github.io/blog/2012/12/26/a-mobile-company/</loc>
         <lastmod>2012-12-26T13:01:02+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xueqiu.github.com/blog/2014/12/26/redis-capacity-planning/</loc>
+        <loc>http://xueqiu.github.io/blog/2014/12/26/redis-capacity-planning/</loc>
         <lastmod>2014-12-26T10:29:36+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xueqiu.github.com/blog/archives/</loc>
+        <loc>http://xueqiu.github.io/blog/archives/</loc>
         <lastmod>2014-12-26T10:29:36+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xueqiu.github.com/</loc>
+        <loc>http://xueqiu.github.io/</loc>
         <lastmod>2014-12-26T10:29:36+08:00</lastmod>
     </url>
 </urlset>

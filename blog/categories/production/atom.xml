@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: production | Xueqiu Engineering Blog]]></title>
-  <link href="http://xueqiu.github.com/blog/categories/production/atom.xml" rel="self"/>
-  <link href="http://xueqiu.github.com/"/>
-  <updated>2014-12-26T13:45:42+08:00</updated>
-  <id>http://xueqiu.github.com/</id>
+  <link href="http://xueqiu.github.io/blog/categories/production/atom.xml" rel="self"/>
+  <link href="http://xueqiu.github.io/"/>
+  <updated>2014-12-26T13:49:06+08:00</updated>
+  <id>http://xueqiu.github.io/</id>
   <author>
     <name><![CDATA[雪球]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[2013，一个「移动」公司]]></title>
-    <link href="http://xueqiu.github.com/blog/2012/12/26/a-mobile-company/"/>
+    <link href="http://xueqiu.github.io/blog/2012/12/26/a-mobile-company/"/>
     <updated>2012-12-26T12:53:00+08:00</updated>
-    <id>http://xueqiu.github.com/blog/2012/12/26/a-mobile-company</id>
+    <id>http://xueqiu.github.io/blog/2012/12/26/a-mobile-company</id>
     <content type="html"><![CDATA[<p><a href="http://xueqiu.com">雪球</a>， 是一个投资者的社交网络；<a href="http://www.snowballfinance.com">雪球公司</a>，是一家互联网金融服务提供商。</p>
 
 <p><img src="/assets/snowball-about.png" title="关于雪球" alt="关于雪球" /></p>

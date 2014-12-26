@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Redis | Xueqiu Engineering Blog]]></title>
-  <link href="http://xueqiu.github.com/blog/categories/redis/atom.xml" rel="self"/>
-  <link href="http://xueqiu.github.com/"/>
-  <updated>2014-12-26T13:45:42+08:00</updated>
-  <id>http://xueqiu.github.com/</id>
+  <link href="http://xueqiu.github.io/blog/categories/redis/atom.xml" rel="self"/>
+  <link href="http://xueqiu.github.io/"/>
+  <updated>2014-12-26T13:49:06+08:00</updated>
+  <id>http://xueqiu.github.io/</id>
   <author>
     <name><![CDATA[雪球]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Redis集群的数据划分与扩容探讨]]></title>
-    <link href="http://xueqiu.github.com/blog/2014/12/26/redis-capacity-planning/"/>
+    <link href="http://xueqiu.github.io/blog/2014/12/26/redis-capacity-planning/"/>
     <updated>2014-12-26T10:23:00+08:00</updated>
-    <id>http://xueqiu.github.com/blog/2014/12/26/redis-capacity-planning</id>
+    <id>http://xueqiu.github.io/blog/2014/12/26/redis-capacity-planning</id>
     <content type="html"><![CDATA[<p>首先界定一下，本文探讨的标的不是官方即将发布的Redis 3.0 Cluster，而是自行实现的一个生产环境中的Redis集群。这是一个典型的分布式系统，以下讨论将围绕CAP原理中，与P相关的数据划分和扩容两个问题展开。</p>
 
 <h3>目标</h3>
