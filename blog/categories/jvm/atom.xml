@@ -4,7 +4,7 @@
   <title><![CDATA[Category: JVM | Xueqiu Engineering Blog]]></title>
   <link href="http://xueqiu.github.io/blog/categories/jvm/atom.xml" rel="self"/>
   <link href="http://xueqiu.github.io/"/>
-  <updated>2015-06-25T14:20:22+08:00</updated>
+  <updated>2015-06-25T14:24:22+08:00</updated>
   <id>http://xueqiu.github.io/</id>
   <author>
     <name><![CDATA[雪球]]></name>
@@ -169,6 +169,12 @@
 <li><a href="http://www.oracle.com/technetwork/articles/java/g1gc-1984535.html">Garbage First Garbage Collector Tuning</a></li>
 </ul>
 
+
+<p><code>
+我们在招聘 “Java工程师 / 运维开发工程师 / 测试开发工程师” 等职位
+详细JD可以参考 http://xueqiu.com/about/jobs
+感兴趣的同学欢迎投简历到 wangdong@xueqiu.com
+</code></p>
 ]]></content>
   </entry>
   
